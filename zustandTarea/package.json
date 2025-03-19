@@ -7,11 +7,16 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "bdDev":" npx json-server --watch db.json --port 3000",
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.8.3",
+    "json-server": "^1.0.0-beta.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "sweetalert2": "^11.17.2",
+    "zustand": "^5.0.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
