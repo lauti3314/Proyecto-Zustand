@@ -1,3 +1,22 @@
 {
-    "tareas":[]
+  "tareas": [
+    {
+      "id": "123",
+      "titulo": "Titulo 1",
+      "descripción": "Descripción 1",
+      "fechaLimite": "1111"
+    },
+    {
+      "id": "1234",
+      "titulo": "Titulo 2",
+      "descripción": "Descripción 2",
+      "fechaLimite": "2222"
+    },
+    {
+      "id": "12345",
+      "titulo": "Titulo 3",
+      "descripción": "Descripción 3",
+      "fechaLimite": "3333"
+    }
+  ]
 }
