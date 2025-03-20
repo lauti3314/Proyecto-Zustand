@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { ChangeEvent, FC, FormEvent, useEffect, useState } from "react";
 import { tareaStore } from "../../../store/tareaStore";
 import styles from "./Modal.module.css";
 import { ITarea } from "../../../types/ITarea";
@@ -22,6 +22,18 @@ export const Modal: FC<IModal> = ({ handleCloseModal }) => {
     if (tareaActiva) setFormValues(tareaActiva);
   }, []);
 
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setFormValues((prev) => ({ ...prev, [`${name}`]: value }));
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <div className={styles.containerPrincipalModal}>
       <div className={styles.contentPopUp}>
@@ -29,19 +41,21 @@ export const Modal: FC<IModal> = ({ handleCloseModal }) => {
           <h3>{tareaActiva ? "Editar Tarea" : "Crear Tarea"} </h3>
         </div>
 
-        <form className={styles.formContent}>
+        <form onSubmit={handleSubmit} className={styles.formContent}>
           <div>
             <input
               placeholder="Ingrese un titulo"
               type="text"
               required
               value={formValues.titulo}
+              onChange={handleChange}
               autoComplete="off"
               name="titulo"
             />
             <textarea
               placeholder="Ingrese una descripción"
               required
+              onChange={handleChange}
               value={formValues.descripcion}
               name="descripcion"
             />
@@ -49,6 +63,7 @@ export const Modal: FC<IModal> = ({ handleCloseModal }) => {
               type="date"
               value={formValues.fechaLimite}
               required
+              onChange={handleChange}
               autoComplete="off"
               name="fechaLimite"
             />
