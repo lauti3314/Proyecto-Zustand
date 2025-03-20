@@ -1,13 +1,11 @@
-function App() {
-  
+import { TareasScreen } from "./components/screens/TareasScreen";
 
+function App() {
   return (
     <div>
-      <h1>
-        Hola esta es mi app de tareas
-      </h1>
+      <TareasScreen />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
