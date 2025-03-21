@@ -1,12 +1,15 @@
 .containerHeader {
   width: 100vw;
   height: 8vh;
-  background-color: #ccc;
+  background: linear-gradient(90deg, #004e92, #000428);
   display: flex;
-  justify-content: flex-start;
   align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .containerTitleHeader {
   margin-left: 4vw;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
 }

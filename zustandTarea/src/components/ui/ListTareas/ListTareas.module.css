@@ -1,17 +1,41 @@
 .containerPrincipalListTareas {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
   flex-direction: column;
-  gap: 1rem;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: #f7f7f7;
+  min-height: 100vh;
 }
 
 .containerTitleAndButton {
   display: flex;
-  justify-content: space-around;
-  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
   width: 70%;
+  padding: 0.5rem;
+  background-color: #fff;
+  border-radius: 0.4rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.containerTitleAndButton h2 {
+  margin: 0;
+  color: #333;
+}
+
+.containerTitleAndButton button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: #28a745;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.containerTitleAndButton button:hover {
+  background-color: #218838;
+  cursor: pointer;
 }
 
 .containerList {
@@ -19,11 +43,26 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
-  background-color: #ccc;
+  padding: 1.5rem;
+  background-color: #fff;
   width: 70%;
   min-height: 60vh;
   max-height: 62vh;
   overflow-y: auto;
-  border-radius: 0.4rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.containerList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.containerList::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.containerList::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
 }
