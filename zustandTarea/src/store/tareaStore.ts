@@ -31,7 +31,7 @@ export const tareaStore = create<ITareaStore>((set) => ({
   editarUnaTarea: (tareaEditada) =>
     set((state) => {
       const arregloTareas = state.tareas.map((tarea) =>
-        tarea.id === tareaEditada.id ? { ...tarea, tareaEditada } : tarea
+        tarea.id === tareaEditada.id ? { ...tarea, ...tareaEditada } : tarea
       );
       return { tareas: arregloTareas };
     }),

@@ -2,6 +2,7 @@ import { ChangeEvent, FC, FormEvent, useEffect, useState } from "react";
 import { tareaStore } from "../../../store/tareaStore";
 import styles from "./Modal.module.css";
 import { ITarea } from "../../../types/ITarea";
+import { useTareas } from "../../../hooks/useTareas";
 
 type IModal = {
   handleCloseModal: VoidFunction;
@@ -15,6 +16,10 @@ const initialState: ITarea = {
 
 export const Modal: FC<IModal> = ({ handleCloseModal }) => {
   const tareaActiva = tareaStore((state) => state.tareaActiva);
+
+  const setTareaActiva = tareaStore((state) => state.setTareaActiva);
+
+  const { crearTarea, putTareaEditar } = useTareas();
 
   const [formValues, setFormValues] = useState<ITarea>(initialState);
 
@@ -32,6 +37,13 @@ export const Modal: FC<IModal> = ({ handleCloseModal }) => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (tareaActiva) {
+      putTareaEditar(formValues);
+    } else {
+      crearTarea({ ...formValues, id: new Date().toDateString() });
+    }
+    setTareaActiva(null);
+    handleCloseModal();
   };
 
   return (

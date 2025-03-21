@@ -15,7 +15,7 @@ export const getAllTareas = async () => {
 export const postNuevaTarea = async (nuevaTarea: ITarea) => {
   try {
     const response = await axios.post<ITarea[]>(API_URL, {
-      nuevaTarea,
+      ...nuevaTarea,
     });
     return response.data;
   } catch (error) {
@@ -27,7 +27,7 @@ export const editarTarea = async (tareaActualizada: ITarea) => {
   try {
     const response = await axios.put<ITarea[]>(
       `${API_URL} / ${tareaActualizada.id}`,
-      { tareaActualizada }
+      { ...tareaActualizada }
     );
     return response.data;
   } catch (error) {
